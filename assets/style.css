@@ -1,0 +1,66 @@
+* {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.navbar {
+    background: #89c82e !important;
+}
+
+.navbar-brand {
+    color: white !important;
+    font-size: 30px;
+    padding-right: 1em;
+}
+
+.nav-link {
+    color: white !important;
+    font-size: 20px;
+}
+
+.jumbotron {
+    background: #89c82e !important;
+}
+
+.container h1, p {
+    color: white !important;
+}
+
+.main-form {
+    margin: 10em;
+    border-style: solid !important;
+    border-color:#3c3c3b !important;
+    border-radius: 25px !important;
+    background-color: #89c82e;
+    color:#3c3c3b
+}
+
+.input-group-text {
+    width: 75px;
+    background-color: #89c82e;
+    border: none;
+}
+
+.form-container {
+    margin: 3em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-submit-container {
+    margin-top: 1em;
+}
+
+.form-container button {
+    background-color: #700064 !important;
+    border-color: #3c3c3b;
+    color: #3c3c3b;
+}
+
+::placeholder {
+    opacity: 0.5;
+}
+
+.form-control::placeholder {
+    opacity: 0.5;
+}
