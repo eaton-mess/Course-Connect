@@ -64,3 +64,7 @@
 .form-control::placeholder {
     opacity: 0.5;
 }
+
+.form-control {
+    border-radius: 0%;
+}
