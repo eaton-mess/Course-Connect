@@ -79,7 +79,11 @@ const validateAll = document.getElementById("submitButton").addEventListener("cl
     }
 
     // If all inputs are valid, proceed with submission
+    //clears the inputs
     if (isValid) {
+        yourName.value = "";
+        yourEmail.value = "";
+        yourCard.value = "";
         alert("Form submitted successfully!");
     }
 })
