@@ -26,11 +26,11 @@ function isValidEmail(email) {
 }
 
 function isValidCard(card) {
-    const cardReg = ("^[0-9]{13,19}$");
-    if(!cardReg.test(number)){
+    const cardReg = /^[0-9]{13,19}$/;
+    if (!cardReg.test(card)) {
         return false;
     }
-    return luhnCheck(number);
+    return luhnCheck(card);
 }
 
 //LUHN algorithm check
@@ -51,6 +51,8 @@ function luhnCheck(cardNumber) {
     return sum % 10 === 0;
 }
 
+//testing to see if numbers of a certain length are classified as 'true'
+console.log(isValidCard(4532816076205022));
 
 // Adding event listeners to submit button to validate
 const validateAll = document.getElementById("submitButton").addEventListener("click", function () {
@@ -71,7 +73,7 @@ const validateAll = document.getElementById("submitButton").addEventListener("cl
         isValid = false;
     }
 
-    if (!isValidCard(cardInput)) {
+    if (!isValidCard) {
         alert("Please enter a valid card number");
         isValid = false;
     }
