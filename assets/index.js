@@ -27,17 +27,16 @@ function isValidEmail(email) {
 
 function isValidCard(card) {
     if (card.length < 13 || card.length > 19 || !luhnCheck(card)) {
-        return false; 
+        return false;
     }
     return true;
 }
 
-
-function luhnCheck(cardNumber) {
+function luhnCheck(card) {
     let sum = 0;
     let alternate = false;
-    for (let i = cardNumber.length - 1; i >= 0; i--) {
-        let num = parseInt(cardNumber.charAt(i), 10);
+    for (let i = card.length - 1; i >= 0; i--) {
+        let num = parseInt(card.charAt(i), 10);
         if (alternate) {
             num *= 2;
             if (num > 9) {
@@ -88,9 +87,31 @@ const validateAll = document.getElementById("submitButton").addEventListener("cl
         yourEmail.value = "";
         yourCard.value = "";
         alert("Form submitted successfully!");
+        sendResults(nameInput, emailInput, cardInput);
     }
 })
 
+// function sendResults(name, email, card) {
+//     const subject = encodeURIComponent("New Form Submission!");
+//     const body = encodeURIComponent('Name: $[name}\nEmail: ${email}\nCard Number: ${card}');
+//     const endEmail = 'mailto:test@dn-uk.com?subject=${subject}&body=${body}';
+// window.location.href = mailtoLink;
+// }
+
 //problem!! the numbers are showing as correect in the console from the luhnCheck, but when inputted into the actual form, it doesn't want to accept them 
 
+// Function to validate input and change background colour accordingly
+function validateInput(inputElement, isValidFunction) {
+    inputElement.addEventListener("blur", function () {
+        const inputValue = inputElement.value;
+        if (isValidFunction(inputValue)) {
+            inputElement.style.backgroundColor = "#89c82e"; // Change background color to green
+        } else {
+            inputElement.style.backgroundColor = "#700064"; // Change background color to pink if invalid
+        }
+    });
+}
 
+validateInput(yourName, isValidName);
+validateInput(yourEmail, isValidEmail);
+validateInput(yourCard, isValidCard);
