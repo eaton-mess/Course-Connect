@@ -26,14 +26,13 @@ function isValidEmail(email) {
 }
 
 function isValidCard(card) {
-    const cardReg = /^[0-9]{13,19}$/;
-    if (!cardReg.test(card)) {
-        return false;
+    if (card.length < 13 || card.length > 19 || !luhnCheck(card)) {
+        return false; 
     }
-    return luhnCheck(card);
+    return true;
 }
 
-//LUHN algorithm check
+
 function luhnCheck(cardNumber) {
     let sum = 0;
     let alternate = false;
@@ -52,15 +51,17 @@ function luhnCheck(cardNumber) {
 }
 
 //testing to see if numbers of a certain length are classified as 'true'
-console.log(isValidCard(4532816076205022));
-console.log(isValidCard(4543612183186814));
-console.log(isValidCard(4556057757164883));
+console.log(luhnCheck(4532939247381250));
+console.log(luhnCheck(4532939247381251));
 
 // Adding event listeners to submit button to validate
 const validateAll = document.getElementById("submitButton").addEventListener("click", function () {
     const nameInput = yourName.value;
     const emailInput = yourEmail.value;
-    const cardInput = yourCard.value;
+    let cardInput = yourCard.value;
+
+    // Remove any non-digit characters from the card number
+    cardInput = cardInput.replace(/\D/g, '');
 
     let isValid = true;
 
@@ -89,5 +90,7 @@ const validateAll = document.getElementById("submitButton").addEventListener("cl
         alert("Form submitted successfully!");
     }
 })
+
+//problem!! the numbers are showing as correect in the console from the luhnCheck, but when inputted into the actual form, it doesn't want to accept them 
 
 
