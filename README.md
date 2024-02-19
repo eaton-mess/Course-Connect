@@ -11,7 +11,7 @@ Deployed Website: https://eatontechnology.github.io/Software-Dev-Work-Trial/
 
 * [Usage](#usage)
 * [Author](#author)
-* [Tests] (#tests)
+* [Tests](#tests)
 * [Acknowledgements](#acknowledgements)
 * [License](#license)
 
