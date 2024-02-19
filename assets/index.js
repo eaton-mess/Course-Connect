@@ -13,7 +13,6 @@ const yourName = document.getElementById("nameInput");
 const yourEmail = document.getElementById("emailInput");
 const yourCard = document.getElementById("cardInput");
 
-
 //functions for validating name, email and card details
 function isValidName(name) {
     const nameReg = /^[a-zA-Z]+ [a-zA-Z]+$/;
@@ -45,12 +44,11 @@ function isValidCard(card) {
     return total % 10 == 0;
 }
 
-
-// Adding event listeners to submit button to validate
-const validateAll = document.getElementById("submitButton").addEventListener("click", function () {
+// Adding event listener to submit button to validate
+const submitButton = document.getElementById("submitButton").addEventListener("click", function () {
     const nameInput = yourName.value;
     const emailInput = yourEmail.value;
-    let cardInput = yourCard.value;
+    const cardInput = yourCard.value;
 
     let isValid = true;
 
@@ -65,13 +63,12 @@ const validateAll = document.getElementById("submitButton").addEventListener("cl
         isValid = false;
     }
 
-    if (!isValidCard) {
+    if (!isValidCard(cardInput)) {
         alert("Please enter a valid card number");
         isValid = false;
     }
 
     // If all inputs are valid, proceed with submission
-    //clears the inputs
     if (isValid) {
         yourName.value = "";
         yourEmail.value = "";
@@ -79,18 +76,17 @@ const validateAll = document.getElementById("submitButton").addEventListener("cl
         alert("Form submitted successfully!");
         sendResults(nameInput, emailInput, cardInput);
     }
-})
+});
 
-// function sendResults(name, email, card) {
-//     const subject = encodeURIComponent("New Form Submission!");
-//     const body = encodeURIComponent('Name: $[name}\nEmail: ${email}\nCard Number: ${card}');
-//     const endEmail = 'mailto:test@dn-uk.com?subject=${subject}&body=${body}';
-// window.location.href = mailtoLink;
-// }
+// Function to send results via email
+function sendResults(name, email, card) {
+    const subject = encodeURIComponent("New Form Submission!");
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nCard Number: ${card}`);
+    const mailtoLink = `mailto:test@dn-uk.com?subject=${subject}&body=${body}`;
+    window.location.href = mailtoLink;
+}
 
-//problem!! the numbers are showing as correect in the console from the luhnCheck, but when inputted into the actual form, it doesn't want to accept them 
-
-// Function to validate input and change background colour accordingly
+// Function to validate input and change background color accordingly
 function validateInput(inputElement, isValidFunction) {
     inputElement.addEventListener("blur", function () {
         const inputValue = inputElement.value;
