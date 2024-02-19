@@ -26,41 +26,31 @@ function isValidEmail(email) {
 }
 
 function isValidCard(card) {
-    if (card.length < 13 || card.length > 19 || !luhnCheck(card)) {
+    if (typeof card !== 'string' || card.length < 13 || card.length > 19) {
         return false;
     }
-    return true;
-}
-
-function luhnCheck(card) {
-    let sum = 0;
-    let alternate = false;
-    for (let i = card.length - 1; i >= 0; i--) {
-        let num = parseInt(card.charAt(i), 10);
-        if (alternate) {
-            num *= 2;
-            if (num > 9) {
-                num -= 9;
-            }
+    let yourCardInt = card.split('').map(Number);
+    for (let i = yourCardInt.length - 2; i >= 0; i = i - 2) {
+        let tempValue = yourCardInt[i];
+        tempValue = tempValue * 2;
+        if (tempValue > 9) {
+            tempValue = tempValue % 10 + 1;
         }
-        sum += num;
-        alternate = !alternate;
+        yourCardInt[i] = tempValue;
     }
-    return sum % 10 === 0;
+    let total = 0;
+    for (let i = 0; i < yourCardInt.length; i++) {
+        total += yourCardInt[i];
+    }
+    return total % 10 == 0;
 }
 
-//testing to see if numbers of a certain length are classified as 'true'
-console.log(luhnCheck(4532939247381250));
-console.log(luhnCheck(4532939247381251));
 
 // Adding event listeners to submit button to validate
 const validateAll = document.getElementById("submitButton").addEventListener("click", function () {
     const nameInput = yourName.value;
     const emailInput = yourEmail.value;
     let cardInput = yourCard.value;
-
-    // Remove any non-digit characters from the card number
-    cardInput = cardInput.replace(/\D/g, '');
 
     let isValid = true;
 
@@ -75,7 +65,7 @@ const validateAll = document.getElementById("submitButton").addEventListener("cl
         isValid = false;
     }
 
-    if (!isValidCard(cardInput)) {
+    if (!isValidCard) {
         alert("Please enter a valid card number");
         isValid = false;
     }
