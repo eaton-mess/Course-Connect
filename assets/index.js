@@ -53,10 +53,12 @@ function luhnCheck(cardNumber) {
 
 //testing to see if numbers of a certain length are classified as 'true'
 console.log(isValidCard(4532816076205022));
+console.log(isValidCard(4543612183186814));
+console.log(isValidCard(4556057757164883));
 
 // Adding event listeners to submit button to validate
 const validateAll = document.getElementById("submitButton").addEventListener("click", function () {
-    const nameInput = yourName.value; 
+    const nameInput = yourName.value;
     const emailInput = yourEmail.value;
     const cardInput = yourCard.value;
 
@@ -73,7 +75,7 @@ const validateAll = document.getElementById("submitButton").addEventListener("cl
         isValid = false;
     }
 
-    if (!isValidCard) {
+    if (!isValidCard(cardInput)) {
         alert("Please enter a valid card number");
         isValid = false;
     }
@@ -87,6 +89,5 @@ const validateAll = document.getElementById("submitButton").addEventListener("cl
         alert("Form submitted successfully!");
     }
 })
-
 
 
