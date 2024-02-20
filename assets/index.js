@@ -1,13 +1,3 @@
-//I want users to only be able to add valid names
-//I want users to only be able to add valid email addresses
-//I want users to only be able to add valid credit/debit card information
-//alll validaiton to be done on one page utilisiing local.storage
-//issues being highlighted to the user when they are still entering a field of as soon as possible after
-//correct fields should be shown as DN green, errors shown in DN pink
-//ensure that any data capture is secure and there is no risk of database corruption through SQL injection. Only standard upper / lower case. letters and printable characters: !#$%&'*+-/=?^_`{|}~ should be allowed in all fields.
-//ensure that all accepted credit cards conform to the LUHN algorithm
-//I need an Email to test@dn-uk.com be sent containing the validated information when a user presses a ‘Submit’ button.
-
 //regex for name, email, and 2 most common banking cards
 const yourName = document.getElementById("nameInput");
 const yourEmail = document.getElementById("emailInput");
@@ -85,6 +75,7 @@ function sendResults(name, email, card) {
     const mailtoLink = `mailto:test@dn-uk.com?subject=${subject}&body=${body}`;
     window.location.href = mailtoLink;
 }
+
 
 // Function to validate input and change background color accordingly
 function validateInput(inputElement, isValidFunction) {
