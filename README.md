@@ -29,7 +29,7 @@ Fake Credit Card Number Generator: https://www.creditcardvalidator.org/generator
 ## Author
 
 Lauren Eaton
-https://github.com/eatontechnology
+https://github.com/eaton-mess
 
 ## Tests/Assumptions
 
