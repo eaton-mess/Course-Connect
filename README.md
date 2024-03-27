@@ -24,7 +24,7 @@ Fake Credit Card Number Generator: https://www.creditcardvalidator.org/generator
 4. Upon successful submission, a confirmation alert will appear, and the form fields will be cleared.
 5. The validated information will be sent via email to the designated email address.
 
-![alt text](https://github.com/eatontechnology/Course-Connect/blob/main/assets/images/Screenshot%202024-02-19%20at%2016.21.15.png)
+![alt text](https://github.com/eaton-mess/Course-Connect/blob/main/assets/images/Screenshot%202024-02-19%20at%2016.21.15.png?raw=true)
 
 ## Author
 
