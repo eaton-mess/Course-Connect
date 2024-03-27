@@ -4,7 +4,7 @@
 
 This project implements a web form with validation for name, email, and credit/debit card number inputs. It ensures that users can only submit valid information and securely sends the validated data via email upon successful submission.
 
-Deployed Website: https://eatontechnology.github.io/Software-Dev-Work-Trial/ <br>
+Deployed Website: https://eaton-mess.github.io/Course-Connect/ <br>
 Fake Credit Card Number Generator: https://www.creditcardvalidator.org/generator
 
 
